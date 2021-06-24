@@ -19,7 +19,8 @@ async function run() {
       conclusion: "success",
       output: {
         title: "Check Created by API",
-        summary: `# All good ![step 1](https://www.imore.com/sites/imore.com/files/styles/w1600h900crop/public/field/image/2019/07/pokemonswordshieldstartertrio.jpg "Step 1")`,
+        /* debug: fm - */
+        summary: "",
       },
     });
 
