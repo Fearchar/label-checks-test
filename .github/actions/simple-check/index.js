@@ -12,18 +12,13 @@ async function run() {
     const octokit = github.getOctokit(gitHubToken);
 
     octokit.rest.checks.create({
+      /* todo: fm - add accept?*/
+      accept: "application/vnd.github.v3+json",
       owner: gitHubRepoOwner,
       repo: gitHubRepoName,
       name: "Simple Check",
       head_sha: gitHubSha,
-      status: "completed",
       conclusion: "success",
-      /* todo: fm - do I need output? */
-      output: {
-        title: "Check Created by API",
-        /* debug: fm - */
-        summary: "",
-      },
     });
 
     /* todo: fm - localise time to utc */
