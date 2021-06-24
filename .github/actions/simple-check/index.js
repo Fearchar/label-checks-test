@@ -26,8 +26,6 @@ async function run() {
       },
     });
 
-    core.setFailed("Intentional fail");
-
     /* todo: fm - localise time to utc */
     core.setOutput("time", new Date().toTimeString());
   } catch (error) {
