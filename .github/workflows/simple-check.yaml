@@ -1,7 +1,7 @@
 on:
   pull_request:
     # todo: fm - what's synchronize doing here?
-    [opened, labeled, unlabeled, synchronize]
+    types: [opened, labeled, unlabeled, synchronize]
 jobs:
   simple_check:
     runs-on: ubuntu-latest
