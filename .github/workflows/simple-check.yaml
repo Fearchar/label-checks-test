@@ -12,8 +12,9 @@ jobs:
         with:
           fetch-depth: 1 # shallow clone
       - name: Create Simple Check
+        id: simplie_check
         uses: ./.github/actions/simple-check
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Get the output time
-        run: echo "The time was ${{ steps.outputs.time }}"
+        run: echo "The time was ${{ steps.simplie_check.outputs.time }}"
