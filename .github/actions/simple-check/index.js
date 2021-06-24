@@ -14,8 +14,7 @@ async function run() {
     octokit.rest.checks.create({
       owner: gitHubRepoOwner,
       repo: gitHubRepoName,
-      /* todo: fm - what's the name doing */
-      name: "Check Created by API",
+      name: "Simple Check",
       head_sha: gitHubSha,
       status: "completed",
       conclusion: "success",
@@ -27,6 +26,7 @@ async function run() {
       },
     });
 
+    /* todo: fm - localise time to utc */
     core.setOutput("time", new Date().toTimeString());
   } catch (error) {
     core.setFailed(error.message);
