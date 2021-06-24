@@ -17,7 +17,7 @@ async function run() {
       name: "Simple Check",
       head_sha: gitHubSha,
       status: "completed",
-      conclusion: "success",
+      conclusion: "failed",
       /* todo: fm - do I need output? */
       output: {
         title: "Check Created by API",
