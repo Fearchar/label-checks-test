@@ -1,11 +1,12 @@
 on:
-  push:
-    branches:
-      - "*"
+  pull_request:
+    # todo: fm - what's synchronize doing here?
+    [opened, labeled, unlabeled, synchronize]
 jobs:
   simple_check:
     runs-on: ubuntu-latest
-    name:
+    # todo: fm - what name should I give it?
+    name: ""
     steps:
       # todo: fm - do I need this step - what is it doing
       - name: Checkout
