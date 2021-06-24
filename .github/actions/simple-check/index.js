@@ -10,7 +10,7 @@ async function run() {
 
     const octokit = github.getOctokit(gitHubToken);
 
-    octokit.checks.create({
+    octokit.rest.checks.create({
       owner: gitHubRepoOwner,
       repo: gitHubRepoName,
       name: "Check Created by API",
