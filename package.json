@@ -7,7 +7,6 @@
   "author": "Fearchar MacLean <46941430+Fearchar@users.noreply.github.com>",
   "dependencies": {
     "@actions/core": "^1.4.0",
-    "@actions/github": "^5.0.0",
-    "@octokit/rest": "^18.6.1"
+    "@actions/github": "^5.0.0"
   }
 }
