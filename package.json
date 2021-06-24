@@ -1,0 +1,15 @@
+{
+  "name": "label-checks-test",
+  "version": "0.1",
+  "description": "A test of using GitHub actions and checks to block merging based on the absence of a label on PRs",
+  "main": "none",
+  "repository": "git@github.com:Fearchar/label-checks-test.git",
+  "author": "Fearchar MacLean <46941430+Fearchar@users.noreply.github.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "@actions/github": "^5.0.0",
+    "@octokit/rest": "^18.6.1"
+  }
+}
