@@ -18,12 +18,6 @@ async function run() {
       head_sha: gitHubSha,
       status: "completed",
       conclusion: "success",
-      /* todo: fm - do I need output? */
-      output: {
-        title: "Check Created by API",
-        /* debug: fm - */
-        summary: "",
-      },
     });
 
     /* todo: fm - localise time to utc */
