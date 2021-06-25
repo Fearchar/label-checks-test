@@ -19,6 +19,7 @@ async function run() {
       name: "Simple Check",
       head_sha: gitHubSha,
       conclusion: "success",
+      status: "completed",
     });
 
     /* todo: fm - localise time to utc */
