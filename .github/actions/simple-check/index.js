@@ -11,17 +11,24 @@ async function run() {
 
     const octokit = github.getOctokit(gitHubToken);
 
+    octokit.rest.checks.create({
+      /* todo: fm - add accept?*/
+      accept: "application/vnd.github.v3+json",
+      owner: gitHubRepoOwner,
+      repo: gitHubRepoName,
+      name: "Simple Check",
+      head_sha: gitHubSha,
+      conclusion: "success",
+      status: "completed",
+    });
+
     const pr = await octokit.rest.pulls.get({
       owner: gitHubRepoOwner,
       repo: gitHubRepoName,
       pull_number: core.getInput("pull-number"),
     });
 
-    if (!pr.labels.includes("QA Passed")) {
-      core.setFailed(
-        'Pull requests require the "QA Passed" label before they can be merged.'
-      );
-    }
+    core.setOutput("pr", JSON.stringify(pr));
     /* todo: fm - localise time to utc */
     core.setOutput("time", new Date().toTimeString());
   } catch (error) {
