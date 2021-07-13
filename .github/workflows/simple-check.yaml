@@ -20,4 +20,4 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Get the output time
-        run: echo "The time was ${{ steps.simple_check.outputs.time }}" && echo "The pull number was ${{ steps.simple_check.outputs.pullNumber }} "
+        run: echo "The time was ${{ steps.simple_check.outputs.time }}" && echo "The pull number was ${{ github.event.pull_request.number }} "
