@@ -19,9 +19,6 @@ async function run() {
     });
     const pull = pullResponse.data;
 
-    /* todo: fm - localise time to utc */
-    core.setOutput("time", new Date().toTimeString());
-
     if (!pullResponse.status === 200) {
       core.setFailed(`There is no pull request with the number ${pullNumber}`);
     }
@@ -31,6 +28,11 @@ async function run() {
         'Pull requests require the "QA Passed" label before they can be merged.'
       );
     }
+
+    core.setOutput(
+      "labels",
+      pull.labels.map((label) => label.names)
+    );
   } catch (error) {
     core.setFailed(error.message);
   }

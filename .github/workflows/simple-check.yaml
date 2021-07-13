@@ -1,9 +1,11 @@
+# todo: fm - change file name
 # todo: fm - unify space casing
 on:
   pull_request:
     # todo: fm - what's synchronize doing here?
     types: [opened, labeled, unlabeled, synchronize]
 jobs:
+  # todo: fm - change name
   simple_check:
     runs-on: ubuntu-latest
     # todo: fm - what name should I give it?
@@ -15,12 +17,15 @@ jobs:
         with:
           # todo: fm - remove pre-existing note
           fetch-depth: 1 # shallow clone
+        # todo: fm - change name
       - name: Create Simple Check
+        # todo: fm - id needed?
         id: simple_check
         uses: ./.github/actions/simple-check
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           pull-number: ${{ github.event.pull_request.number }}
-      - name: Get the output time
+      # todo: fm - change name
+      - name: Print Success
         # todo: fm - ensure correct final output
-        run: echo "The time was ${{ steps.simple_check.outputs.time }} --" && echo ${{ steps.simple_check.outputs.labels }}
+        run: echo "The labels for pull request ${{ github.event.pull_request.number }} are [${{ steps.simple_check.outputs.labels }}]. Action successful."
