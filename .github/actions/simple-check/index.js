@@ -22,7 +22,7 @@ async function run() {
       status: "completed",
     });
 
-    const pr = octokit.rest.pulls.get({
+    const pr = await octokit.rest.pulls.get({
       owner: gitHubRepoOwner,
       repo: gitHubRepoName,
       pull_number: core.getInput("pull-number"),
