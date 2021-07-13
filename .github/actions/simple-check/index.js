@@ -22,7 +22,7 @@ async function run() {
     /* todo: fm - localise time to utc */
     core.setOutput("time", new Date().toTimeString());
 
-    if (!pullResponse.ok) {
+    if (!pullResponse.status === 200) {
       core.setFailed(`There is no pull request with the number ${pullNumber}`);
     }
 
