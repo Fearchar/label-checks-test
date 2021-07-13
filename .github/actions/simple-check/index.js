@@ -25,7 +25,7 @@ async function run() {
     const pr = octokit.rest.pulls.get({
       owner: gitHubRepoOwner,
       repo: gitHubRepoName,
-      pull_number: core.getInput("github-token"),
+      pull_number: core.getInput("pull-number"),
     });
 
     core.setFailed("pr", JSON.stringify(pr));

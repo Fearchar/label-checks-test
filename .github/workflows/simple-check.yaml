@@ -20,10 +20,6 @@ jobs:
         uses: ./.github/actions/simple-check
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-        inputs:
           pull-number: ${{ github.event.pull_request.number }}
-            description: "The triggering pull requests number"
-            required: true
-            default: null
       - name: Get the output time
         run: echo "The time was ${{ steps.simple_check.outputs.time }} --" && echo ${{ steps.simple_check.outputs.pr }}
