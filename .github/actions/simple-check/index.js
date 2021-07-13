@@ -23,7 +23,7 @@ async function run() {
     });
 
     const pr = octokit.rest.pulls.get({
-      owner: owner,
+      owner: gitHubRepoOwner,
       repo: gitHubRepoName,
       pull_number: core.getInput("github-token"),
     });
