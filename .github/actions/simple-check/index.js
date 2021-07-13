@@ -1,6 +1,6 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
-
+/* todo: fm - rename run*/
 async function run() {
   /* todo: fm - get ride of all the uneeded mentions of github */
   try {
@@ -11,11 +11,12 @@ async function run() {
 
     const octokit = github.getOctokit(gitHubToken);
 
-    const pr = await octokit.rest.pulls.get({
+    const prResponse = await octokit.rest.pulls.get({
       owner: gitHubRepoOwner,
       repo: gitHubRepoName,
       pull_number: core.getInput("pull-number"),
     });
+    const pr = prResponse.data;
 
     if (!pr.labels.includes("QA Passed")) {
       core.setFailed(
