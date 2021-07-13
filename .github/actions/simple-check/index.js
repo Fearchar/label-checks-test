@@ -22,7 +22,7 @@ async function run() {
       status: "completed",
     });
 
-    core.setOutput("pullNumber", github.event.pull_request.number);
+    core.setOutput("pullNumber", core.event.pull_request.number);
     /* todo: fm - localise time to utc */
     core.setOutput("time", new Date().toTimeString());
   } catch (error) {
