@@ -31,7 +31,7 @@ async function run() {
 
     core.setOutput(
       "labels",
-      pull.labels.map((label) => label.names)
+      JSON.stringify(pull.labels.map((label) => label.name))
     );
   } catch (error) {
     core.setFailed(error.message);

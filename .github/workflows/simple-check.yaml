@@ -28,4 +28,4 @@ jobs:
       # todo: fm - change name
       - name: Print Success
         # todo: fm - ensure correct final output
-        run: echo "The labels for pull request ${{ github.event.pull_request.number }} are [${{ steps.simple_check.outputs.labels }}]. Action successful."
+        run: echo "The labels for pull request ${{ github.event.pull_request.number }} are ${{ steps.simple_check.outputs.labels }}. Action successful."
