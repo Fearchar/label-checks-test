@@ -5,7 +5,9 @@ inputs:
     description: "Token provided by GitHub"
     required: true
   pull-number:
-    description: "The number of the pull request triggering the action"
+    description:
+      "The number of the pull request triggering the action"
+      # todo: fm - remove required and throw if not provided (need default)
     required: true
 outputs:
   time: # id of output

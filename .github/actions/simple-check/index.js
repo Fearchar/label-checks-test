@@ -28,7 +28,7 @@ async function run() {
       pull_number: core.getInput("pull-number"),
     });
 
-    core.setFailed("pr", JSON.stringify(pr));
+    core.setOutput("pr", JSON.stringify(pr));
     /* todo: fm - localise time to utc */
     core.setOutput("time", new Date().toTimeString());
   } catch (error) {
