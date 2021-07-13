@@ -8,17 +8,22 @@ async function run() {
       process.env.GITHUB_REPOSITORY.split("/");
     const gitHubSha = process.env.GITHUB_SHA;
     const gitHubToken = core.getInput("github-token");
+    const pullNumber = core.getInput("pull-number");
 
     const octokit = github.getOctokit(gitHubToken);
 
-    const prResponse = await octokit.rest.pulls.get({
+    const pullResponse = await octokit.rest.pulls.get({
       owner: gitHubRepoOwner,
       repo: gitHubRepoName,
-      pull_number: core.getInput("pull-number"),
+      pull_number: pullNumber,
     });
-    const pr = prResponse.data;
+    const pull = pullResponse.data;
 
-    if (!pr.labels.find((label) => label.name === "QA Passed")) {
+    if (!pull.ok) {
+      core.setFailed(`There is no pull request with the number ${pullNumber}`);
+    }
+
+    if (!pull.labels.find((label) => label.name === "QA Passed")) {
       core.setFailed(
         'Pull requests require the "QA Passed" label before they can be merged.'
       );

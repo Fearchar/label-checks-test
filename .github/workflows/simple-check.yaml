@@ -22,4 +22,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           pull-number: ${{ github.event.pull_request.number }}
       - name: Get the output time
+        # todo: fm - ensure correct final output
         run: echo "The time was ${{ steps.simple_check.outputs.time }} --" && echo ${{ steps.simple_check.outputs.labels }}
