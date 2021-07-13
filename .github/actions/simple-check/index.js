@@ -22,6 +22,13 @@ async function run() {
       status: "completed",
     });
 
+    const pr = octokit.rest.pulls.get({
+      owner: owner,
+      repo: gitHubRepoName,
+      pull_number: core.getInput("github-token"),
+    });
+
+    core.setFailed("pr", JSON.stringify(pr));
     /* todo: fm - localise time to utc */
     core.setOutput("time", new Date().toTimeString());
   } catch (error) {
