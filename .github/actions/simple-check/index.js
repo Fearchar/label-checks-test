@@ -18,12 +18,11 @@ async function run() {
     });
     const pr = prResponse.data;
 
-    // if (!pr.labels.includes("QA Passed")) {
-    //   core.setFailed(
-    //     'Pull requests require the "QA Passed" label before they can be merged.'
-    //   );
-    // }
-    core.setOutput("labels", pr.labels);
+    if (!pr.labels.find((label) => label.name === "QA Passed")) {
+      core.setFailed(
+        'Pull requests require the "QA Passed" label before they can be merged.'
+      );
+    }
     /* todo: fm - localise time to utc */
     core.setOutput("time", new Date().toTimeString());
   } catch (error) {
