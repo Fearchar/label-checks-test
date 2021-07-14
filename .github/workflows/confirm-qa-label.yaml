@@ -12,12 +12,14 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Cache Dependancies
+        id: qa-cache
         uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: qa-confirm-cache-2
+          key: qa-cache-key
 
       - name: Load Dependencies
+        if: steps.qa-action-cache.outputs.cache-hit != 'true'
         run: npm i @actions/core @actions/github
 
       - name: Confirm Label
