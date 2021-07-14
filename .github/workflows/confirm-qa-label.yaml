@@ -9,8 +9,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-        with:
-          fetch-depth: 1
 
       - name: Confirm Label
         id: confirm-qa-label
