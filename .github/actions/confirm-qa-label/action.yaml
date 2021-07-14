@@ -1,17 +1,15 @@
-name: "Create Simple Check"
+name: "Confirm QA Label"
 description: "Create a status check with the API"
 inputs:
   github-token:
     description: "Token provided by GitHub"
     required: true
   pull-number:
-    description:
-      "The number of the pull request triggering the action"
-      # todo: fm - remove required and throw if not provided (need default)
-    required: true
+    description: "The number of the pull request triggering the action."
+    required: false
 outputs:
-  time: # id of output
-    description: "A time"
+  labels:
+    description: "A list of the labels attached to the event pull request."
 runs:
   using: "node12"
   main: "index.js"
