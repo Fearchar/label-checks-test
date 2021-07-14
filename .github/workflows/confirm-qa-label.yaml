@@ -10,6 +10,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Load Dependencies
+        run: npm i @actions/core && nmp i @actions/github
+
       - name: Confirm Label
         id: confirm-qa-label
         uses: ./.github/actions/confirm-qa-label
