@@ -6,7 +6,7 @@ on:
     types: [opened, labeled, unlabeled, synchronize]
 jobs:
   # todo: fm - change name
-  simple_check:
+  "Qa Label Check":
     runs-on: ubuntu-latest
     # todo: fm - what name should I give it?
     name: ""
