@@ -1,6 +1,7 @@
 on:
   pull_request:
     types: [opened, labeled, unlabeled, synchronize]
+
 jobs:
   confirm-qa-label:
     runs-on: ubuntu-latest
