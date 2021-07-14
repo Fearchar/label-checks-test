@@ -6,7 +6,7 @@ on:
     types: [opened, labeled, unlabeled, synchronize]
 jobs:
   # todo: fm - change name
-  confirm_qa_label:
+  "Qa Label Check":
     runs-on: ubuntu-latest
     # todo: fm - what name should I give it?
     name: ""
@@ -20,7 +20,7 @@ jobs:
         # todo: fm - change name
       - name: Create Simple Check
         # todo: fm - id needed?
-        id: "QA Label Check"
+        id: simple_check
         uses: ./.github/actions/simple-check
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
