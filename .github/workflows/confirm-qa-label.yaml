@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Load Dependencies
-        run: npm i @actions/core && npm i @actions/github
+        run: npm i @actions/core @actions/github
 
       - name: Confirm Label
         id: confirm-qa-label
