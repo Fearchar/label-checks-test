@@ -11,6 +11,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Cache Dependancies
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: qa-confirm-cache
+
       - name: Load Dependencies
         run: npm i @actions/core @actions/github
 
