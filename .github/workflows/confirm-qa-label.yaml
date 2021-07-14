@@ -1,0 +1,23 @@
+on:
+  pull_request:
+    types: [opened, labeled, unlabeled, synchronize]
+
+jobs:
+  confirm-qa-label:
+    runs-on: ubuntu-latest
+    name: Confirm QA Label
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Confirm Label
+        id: confirm-qa-label
+        uses: ./.github/actions/confirm-qa-label
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pull-number: ${{ github.event.pull_request.number }}
+
+      - name: Print Success
+        run: echo "The labels for pull request ${{ github.event.pull_request.number }} are ${{ steps.simple_check.outputs.labels }}. Action successful."
