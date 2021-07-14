@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Cache Dependancies
-        id: qa-cache
+        id: qa-action-cache
         uses: actions/cache@v2
         with:
           path: ~/.npm
