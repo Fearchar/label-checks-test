@@ -20,7 +20,7 @@ jobs:
 
       - name: Load Dependencies
         if: steps.qa-action-cache.outputs.cache-hit != 'true'
-        run: echo ${{ steps.qa-action-cache.outputs.cache-hit != 'true' } && npm i @actions/core @actions/github
+        run: echo ${{ steps.qa-action-cache.outputs.cache-hit != 'true' }} && npm i @actions/core @actions/github
 
       - name: Confirm Label
         id: confirm-qa-label
