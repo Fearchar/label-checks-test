@@ -21,4 +21,3 @@ jobs:
 
       - name: Print Success
         run: echo "The labels for pull request ${{ github.event.pull_request.number }} are ${{ steps.confirm-qa-label.outputs.labels }}. Action successful."
-#note
