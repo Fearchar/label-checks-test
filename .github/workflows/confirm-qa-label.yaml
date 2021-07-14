@@ -12,7 +12,6 @@ jobs:
           fetch-depth: 1
 
       - name: Confirm Label
-        # todo: fm - id needed?
         id: confirm-qa-label
         uses: ./.github/actions/confirm-qa-label
         with:
