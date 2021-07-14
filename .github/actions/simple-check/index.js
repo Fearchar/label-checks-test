@@ -10,7 +10,7 @@ function getActionDetails() {
   return { token, pullNumber, repoOwner, repoName };
 }
 
-function getPullRequest(token, repoOwner, repoName, pullNumber) {
+async function getPullRequest(token, repoOwner, repoName, pullNumber) {
   const octokit = github.getOctokit(token);
 
   const response = await octokit.rest.pulls.get({
