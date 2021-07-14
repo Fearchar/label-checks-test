@@ -30,7 +30,12 @@ async function runAction() {
   try {
     const { token, repoOwner, repoName, pullNumber } = getActionDetails();
 
-    const pullRequest = getPullRequest(token, repoOwner, repoName, pullNumber);
+    const pullRequest = await getPullRequest(
+      token,
+      repoOwner,
+      repoName,
+      pullNumber
+    );
 
     if (!pullRequest.labels.find((label) => label.name === "QA Passed")) {
       core.setFailed(
