@@ -6,11 +6,21 @@ jobs:
   confirm-qa-label:
     runs-on: ubuntu-latest
     name: Confirm QA Label
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
+
+      - name: Cache Dependancies
+        id: qa-action-cache
+        uses: actions/cache@v2
         with:
-          fetch-depth: 1
+          path: ~/.npm
+          key: qa-cache-key
+
+      - name: Load Dependencies
+        if: steps.qa-action-cache.outputs.cache-hit != 'true'
+        run: npm i @actions/core @actions/github
 
       - name: Confirm Label
         id: confirm-qa-label
@@ -20,4 +30,4 @@ jobs:
           pull-number: ${{ github.event.pull_request.number }}
 
       - name: Print Success
-        run: echo "The labels for pull request ${{ github.event.pull_request.number }} are ${{ steps.simple_check.outputs.labels }}. Action successful."
+        run: echo "The labels for pull request ${{ github.event.pull_request.number }} are ${{ steps.confirm-qa-label.outputs.labels }}. Action successful."
